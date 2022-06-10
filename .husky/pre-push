@@ -1,0 +1,27 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo 'Checking linting and formatting before pushing...'
+
+yarn check-format ||
+(
+    echo 'Prettier Check Failed. Run npm run format or yarn format, add changes and try push again.';
+    false;
+)
+
+# Check ESLint Standards
+yarn check-lint ||
+(
+        echo 'ESLint Check Failed. Make the required changes listed above, add changes and try to push again.'
+        false; 
+)
+
+# Check tsconfig standards
+yarn check-types ||
+(
+    echo 'Failed Type check. Make the changes required above.'
+    false;
+)
+
+# If everything passes... Now we can push
+echo 'Linting and styling passed, now pushing...'
