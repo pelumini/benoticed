@@ -166,5 +166,11 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      // use <root>/tsconfig.json
+      typescript: {
+        project: '.',
+      },
+    },
   },
 };
