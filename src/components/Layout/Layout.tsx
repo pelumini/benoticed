@@ -6,7 +6,7 @@ interface LayoutProps {
   children: any;
 }
 
-export default function Layout({ children }: LayoutProps) {
+export function Layout({ children }: LayoutProps) {
   return (
     <div>
       <Head>
