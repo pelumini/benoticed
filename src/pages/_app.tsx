@@ -1,6 +1,9 @@
 import React from 'react';
+import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import App from 'next/app';
 import '../styles/globals.css';
+import { SnackbarProvider } from 'notistack';
+import { StoreProvider } from '../utils/Store';
 
 export default class MyApp extends App {
   componentDidMount() {
@@ -14,9 +17,15 @@ export default class MyApp extends App {
     const { Component, pageProps } = this.props;
 
     return (
-      <>
-        <Component {...pageProps} />
-      </>
+      <SnackbarProvider
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <StoreProvider>
+          <PayPalScriptProvider options={{ 'client-id': 'test' }} deferLoading>
+            <Component {...pageProps} />
+          </PayPalScriptProvider>
+        </StoreProvider>
+      </SnackbarProvider>
     );
   }
 }

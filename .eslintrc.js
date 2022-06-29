@@ -41,7 +41,6 @@ module.exports = {
       { args: 'all', argsIgnorePattern: '^_' },
     ],
     'react/jsx-no-useless-fragment': 'off',
-    '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/ban-types': [
       'warn',
       {
@@ -62,9 +61,12 @@ module.exports = {
         },
       },
     ],
+    'no-underscore-dangle': 'off',
     'no-unused-vars': 'warn',
     'object-curly-newline': 'off',
     'consistent-return': 'off',
+    'react/jsx-no-constructed-context-values': 'off',
+    '@typescript-eslint/no-use-before-define': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     'prefer-template': 'error',
