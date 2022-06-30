@@ -6,7 +6,7 @@ const getError = (err: any) =>
     : err.message;
 
 const onError = async (err: any, req: any, res: any, next: any) => {
-  await db.disconnect();
+  // await db.disconnect();
   res.status(500).send({ message: err.toString() });
 };
 export { getError, onError };

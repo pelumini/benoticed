@@ -60,7 +60,7 @@ export default function ProductScreen({ product }: IProductScreenProps) {
       fetchReviews();
     } catch (err) {
       setLoading(false);
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
 
@@ -69,7 +69,7 @@ export default function ProductScreen({ product }: IProductScreenProps) {
       const { data } = await axios.get(`/api/products/${product._id}/reviews`);
       setReviews(data);
     } catch (err) {
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
   useEffect(() => {

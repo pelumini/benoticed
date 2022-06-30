@@ -48,7 +48,7 @@ export default function Login() {
       dispatch({ type: 'USER_LOGIN', payload: data });
       Cookies.set('userInfo', data);
       router.push(redirect || '/');
-    } catch (err) {
+    } catch (err: any) {
       enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
