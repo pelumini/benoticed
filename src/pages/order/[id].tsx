@@ -28,6 +28,13 @@ import { getError } from 'utils/error';
 import { Store } from 'utils/Store';
 import useStyles from 'utils/styles';
 
+enum SCRIPT_LOADING_STATE {
+  INITIAL = 'initial',
+  PENDING = 'pending',
+  REJECTED = 'rejected',
+  RESOLVED = 'resolved',
+}
+
 function reducer(state: any, action: any) {
   switch (action.type) {
     case 'FETCH_REQUEST':
@@ -132,7 +139,10 @@ function Order({ params }: any) {
             currency: 'USD',
           },
         });
-        // paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
+        paypalDispatch({
+          type: 'setLoadingStatus',
+          value: SCRIPT_LOADING_STATE.PENDING,
+        });
       };
       loadPaypalScript();
     }
