@@ -62,6 +62,8 @@ module.exports = {
       },
     ],
     'no-underscore-dangle': 'off',
+    'no-restricted-exports': 'off',
+    'no-nested-ternary': 'off',
     'no-unused-vars': 'warn',
     'object-curly-newline': 'off',
     'consistent-return': 'off',

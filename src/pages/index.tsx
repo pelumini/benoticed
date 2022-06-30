@@ -56,6 +56,8 @@ export default function Home({ products }: IHomeProps) {
                       alt={product.name}
                       image={product.image}
                       title={product.name}
+                      // width={915}
+                      // height={397}
                     />
                     <CardContent>
                       <Typography>{product.name}</Typography>

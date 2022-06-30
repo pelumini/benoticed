@@ -1,16 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
 import Product from 'models/Product';
+import data from 'utils/data';
 import db from 'utils/db';
+// import User from '../../models/User';
 
 const handler = nc();
 
 handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
+  // return res.send({ message: 'already seeded' });
   await db.connect();
-  const categories = await Product.find().distinct('category');
-
+  // await User.deleteMany();
+  // await User.insertMany(data.users);
+  await Product.deleteMany();
+  await Product.insertMany(data.products);
   await db.disconnect();
-  res.send(categories);
+  res.send({ message: 'seeded successfully' });
 });
 
 export default handler;
