@@ -56,7 +56,7 @@ export default function ProductScreen({ product }: IProductScreenProps) {
         }
       );
       setLoading(false);
-      enqueueSnackbar('Review submitted successfully', { variant: 'success' });
+      enqueueSnackbar('Review submitted successfullyy', { variant: 'success' });
       fetchReviews();
     } catch (err) {
       setLoading(false);
