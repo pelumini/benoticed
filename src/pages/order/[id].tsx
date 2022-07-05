@@ -23,10 +23,10 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
-import Layout from 'components/Layout';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import Layout from 'src/components/Layout';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 enum SCRIPT_LOADING_STATE {
   INITIAL = 'initial',

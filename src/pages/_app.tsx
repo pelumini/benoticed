@@ -3,7 +3,7 @@ import { PayPalScriptProvider } from '@paypal/react-paypal-js';
 import App from 'next/app';
 import '../styles/globals.css';
 import { SnackbarProvider } from 'notistack';
-import { StoreProvider } from '../utils/Store';
+import { StoreProvider } from 'src/utils/Store';
 
 export default class MyApp extends App {
   componentDidMount() {

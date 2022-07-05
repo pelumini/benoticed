@@ -16,10 +16,10 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
 import { Controller, useForm } from 'react-hook-form';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
-import Layout from '../components/Layout';
+import Layout from 'src/components/Layout';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 function Profile() {
   const { state, dispatch } = useContext(Store);

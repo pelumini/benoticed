@@ -13,10 +13,10 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
 import { Controller, useForm } from 'react-hook-form';
-import Layout from 'components/Layout';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import Layout from 'src/components/Layout';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 export default function Register() {
   const {

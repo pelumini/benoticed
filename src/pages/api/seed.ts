@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
-import Product from 'models/Product';
-import data from 'utils/data';
-import db from 'utils/db';
+import Product from 'src/models/Product';
+import data from 'src/utils/data';
+import db from 'src/utils/db';
 // import User from '../../models/User';
 
 const handler = nc();
