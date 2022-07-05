@@ -31,9 +31,9 @@ import Head from 'next/head';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 interface ILayoutProps {
   title?: string;

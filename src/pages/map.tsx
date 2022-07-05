@@ -10,9 +10,9 @@ import axios from 'axios';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 

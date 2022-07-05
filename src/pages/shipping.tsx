@@ -9,10 +9,10 @@ import {
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
-import CheckoutWizard from 'components/CheckoutWizard';
-import Layout from 'components/Layout';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import CheckoutWizard from 'src/components/CheckoutWizard';
+import Layout from 'src/components/Layout';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 export default function Shipping() {
   const {

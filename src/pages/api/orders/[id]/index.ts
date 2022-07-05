@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
-import Order from 'models/Order';
-import { isAuth } from 'utils/auth';
-import db from 'utils/db';
+import Order from 'src/models/Order';
+import { isAuth } from 'src/utils/auth';
+import db from 'src/utils/db';
 
 const handler = nc();
 

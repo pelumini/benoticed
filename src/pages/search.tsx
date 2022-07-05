@@ -16,13 +16,13 @@ import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
-import Layout from 'components/Layout';
-import ProductItem from 'components/ProductItem';
-import Product from 'models/Product';
-import { IProduct } from 'types';
-import db from 'utils/db';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
+import Layout from 'src/components/Layout';
+import ProductItem from 'src/components/ProductItem';
+import Product from 'src/models/Product';
+import { IProduct } from 'src/types';
+import db from 'src/utils/db';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 const PAGE_SIZE = 3;
 

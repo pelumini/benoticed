@@ -5,7 +5,7 @@ import {
   MIN_AMOUNT,
   MAX_AMOUNT,
   formatAmountForStripe,
-} from 'utils/stripe-helpers';
+} from 'src/utils/stripe-helpers';
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: '2020-08-27',

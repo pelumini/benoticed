@@ -17,13 +17,13 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
-import Layout from 'components/Layout';
-import Product from 'models/Product';
-import { IProduct } from 'types';
-import { getError } from 'utils/error';
-import { Store } from 'utils/Store';
-import useStyles from 'utils/styles';
-import db from '../../utils/db';
+import Layout from 'src/components/Layout';
+import Product from 'src/models/Product';
+import { IProduct } from 'src/types';
+import db from 'src/utils/db';
+import { getError } from 'src/utils/error';
+import { Store } from 'src/utils/Store';
+import useStyles from 'src/utils/styles';
 
 interface IProductScreenProps {
   product: IProduct;

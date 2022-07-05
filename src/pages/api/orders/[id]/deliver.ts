@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
-import Order from 'models/Order';
-import { isAuth } from 'utils/auth';
-import db from 'utils/db';
-import { onError } from 'utils/error';
+import Order from 'src/models/Order';
+import { isAuth } from 'src/utils/auth';
+import db from 'src/utils/db';
+import { onError } from 'src/utils/error';
 
 const handler = nc({
   onError,

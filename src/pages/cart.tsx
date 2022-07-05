@@ -21,8 +21,8 @@ import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
-import Layout from 'components/Layout';
-import { Store } from 'utils/Store';
+import Layout from 'src/components/Layout';
+import { Store } from 'src/utils/Store';
 
 function CartScreen() {
   const router = useRouter();

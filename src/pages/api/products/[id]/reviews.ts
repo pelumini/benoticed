@@ -1,10 +1,10 @@
 // /api/products/:id/reviews
 import mongoose from 'mongoose';
 import nextConnect from 'next-connect';
-import Product from 'models/Product';
-import { isAuth } from 'utils/auth';
-import db from 'utils/db';
-import { onError } from 'utils/error';
+import Product from 'src/models/Product';
+import { isAuth } from 'src/utils/auth';
+import db from 'src/utils/db';
+import { onError } from 'src/utils/error';
 
 const handler = nextConnect({
   onError,

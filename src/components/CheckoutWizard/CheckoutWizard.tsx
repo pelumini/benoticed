@@ -1,6 +1,6 @@
 import React from 'react';
 import { Step, StepLabel, Stepper } from '@material-ui/core';
-import useStyles from 'utils/styles';
+import useStyles from 'src/utils/styles';
 
 interface ICheckoutWizardProps {
   activeStep: number;

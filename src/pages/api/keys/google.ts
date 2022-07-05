@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import nc from 'next-connect';
-import { isAuth } from 'utils/auth';
+import { isAuth } from 'src/utils/auth';
 
 const handler = nc();
 
