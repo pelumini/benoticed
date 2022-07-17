@@ -17,6 +17,7 @@ import {
   ListItemText,
 } from '@material-ui/core';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -38,7 +39,7 @@ function reducer(state: any, action: any) {
   }
 }
 
-function OrderHistory() {
+const OrderHistory: NextPage = () => {
   const { state } = useContext(Store);
   const router = useRouter();
   const classes = useStyles();
@@ -146,6 +147,6 @@ function OrderHistory() {
       </Grid>
     </Layout>
   );
-}
+};
 
 export default dynamic(() => Promise.resolve(OrderHistory), { ssr: false });

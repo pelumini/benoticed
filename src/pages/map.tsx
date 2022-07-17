@@ -7,6 +7,7 @@ import {
   StandaloneSearchBox,
 } from '@react-google-maps/api';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
@@ -16,7 +17,7 @@ import useStyles from 'src/utils/styles';
 
 const defaultLocation = { lat: 45.516, lng: -73.56 };
 
-function Map() {
+const Map: NextPage = () => {
   const router = useRouter();
   const classes = useStyles();
   const { enqueueSnackbar } = useSnackbar();
@@ -136,6 +137,6 @@ function Map() {
   ) : (
     <CircularProgress />
   );
-}
+};
 
 export default dynamic(() => Promise.resolve(Map), { ssr: false });

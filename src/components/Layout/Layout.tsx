@@ -1,4 +1,11 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  ReactChild,
+  ReactFragment,
+  ReactPortal,
+} from 'react';
 import {
   AppBar,
   Toolbar,
@@ -38,10 +45,14 @@ import useStyles from 'src/utils/styles';
 interface ILayoutProps {
   title?: string;
   description?: string;
-  children: any;
+  children: boolean | ReactChild | ReactFragment | ReactPortal;
 }
 
-export function Layout({ title, description, children }: ILayoutProps) {
+export const Layout: React.FC<ILayoutProps> = ({
+  title,
+  description,
+  children,
+}) => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { darkMode, cart, userInfo } = state;
@@ -87,7 +98,7 @@ export function Layout({ title, description, children }: ILayoutProps) {
       setCategories(data);
     } catch (err) {
       console.log(err);
-      // enqueueSnackbar(getError(err), { variant: 'error' });
+      enqueueSnackbar(getError(err), { variant: 'error' });
     }
   };
 
@@ -286,4 +297,4 @@ export function Layout({ title, description, children }: ILayoutProps) {
       </ThemeProvider>
     </div>
   );
-}
+};

@@ -17,7 +17,10 @@ interface IProductItemProps {
   addToCartHandler: (product: IProduct) => void;
 }
 
-export function ProductItem({ product, addToCartHandler }: IProductItemProps) {
+export const ProductItem: React.FC<IProductItemProps> = ({
+  product,
+  addToCartHandler,
+}) => {
   return (
     <Card>
       <NextLink href={`/product/${product.slug}`} passHref>
@@ -45,4 +48,4 @@ export function ProductItem({ product, addToCartHandler }: IProductItemProps) {
       </CardActions>
     </Card>
   );
-}
+};

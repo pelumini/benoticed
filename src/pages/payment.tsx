@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import Cookies from 'js-cookie';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
 import CheckoutWizard from 'src/components/CheckoutWizard';
@@ -17,7 +18,7 @@ import Layout from 'src/components/Layout';
 import { Store } from 'src/utils/Store';
 import useStyles from 'src/utils/styles';
 
-export default function Payment() {
+const Payment: NextPage = () => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const classes = useStyles();
   const router = useRouter();
@@ -97,4 +98,6 @@ export default function Payment() {
       </form>
     </Layout>
   );
-}
+};
+
+export default Payment;

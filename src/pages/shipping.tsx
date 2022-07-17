@@ -7,6 +7,7 @@ import {
   Button,
 } from '@material-ui/core';
 import Cookies from 'js-cookie';
+import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
 import { Controller, useForm } from 'react-hook-form';
 import CheckoutWizard from 'src/components/CheckoutWizard';
@@ -14,7 +15,7 @@ import Layout from 'src/components/Layout';
 import { Store } from 'src/utils/Store';
 import useStyles from 'src/utils/styles';
 
-export default function Shipping() {
+const Shipping: NextPage = () => {
   const {
     handleSubmit,
     control,
@@ -258,4 +259,6 @@ export default function Shipping() {
       </form>
     </Layout>
   );
-}
+};
+
+export default Shipping;

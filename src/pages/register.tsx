@@ -9,6 +9,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import type { NextPage } from 'next';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
@@ -18,7 +19,7 @@ import { getError } from 'src/utils/error';
 import { Store } from 'src/utils/Store';
 import useStyles from 'src/utils/styles';
 
-export default function Register() {
+const Register: NextPage = () => {
   const {
     handleSubmit,
     control,
@@ -198,4 +199,6 @@ export default function Register() {
       </form>
     </Layout>
   );
-}
+};
+
+export default Register;

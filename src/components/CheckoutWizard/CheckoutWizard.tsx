@@ -6,7 +6,9 @@ interface ICheckoutWizardProps {
   activeStep: number;
 }
 
-export function CheckoutWizard({ activeStep = 0 }: ICheckoutWizardProps) {
+export const CheckoutWizard: React.FC<ICheckoutWizardProps> = ({
+  activeStep = 0,
+}) => {
   const classes = useStyles();
   return (
     <Stepper
@@ -23,4 +25,4 @@ export function CheckoutWizard({ activeStep = 0 }: ICheckoutWizardProps) {
       )}
     </Stepper>
   );
-}
+};
