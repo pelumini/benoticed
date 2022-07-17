@@ -11,6 +11,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -21,7 +22,7 @@ import { getError } from 'src/utils/error';
 import { Store } from 'src/utils/Store';
 import useStyles from 'src/utils/styles';
 
-function Profile() {
+const Profile: NextPage = () => {
   const { state, dispatch } = useContext(Store);
   const {
     handleSubmit,
@@ -241,6 +242,6 @@ function Profile() {
       </Grid>
     </Layout>
   );
-}
+};
 
 export default dynamic(() => Promise.resolve(Profile), { ssr: false });

@@ -17,6 +17,7 @@ import {
   ListItem,
 } from '@material-ui/core';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -24,7 +25,7 @@ import { useRouter } from 'next/router';
 import Layout from 'src/components/Layout';
 import { Store } from 'src/utils/Store';
 
-function CartScreen() {
+const CartScreen: NextPage = () => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const {
@@ -154,6 +155,6 @@ function CartScreen() {
       )}
     </Layout>
   );
-}
+};
 
 export default dynamic(() => Promise.resolve(CartScreen), { ssr: false });

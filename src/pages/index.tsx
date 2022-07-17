@@ -20,7 +20,7 @@ import db from 'src/utils/db';
 import { Store } from 'src/utils/Store';
 
 interface IHomeProps {
-  products: IProduct[];
+  products?: IProduct[];
 }
 
 export default function Home({ products }: IHomeProps) {
@@ -46,7 +46,7 @@ export default function Home({ products }: IHomeProps) {
       <div>
         <h1>Products</h1>
         <Grid container spacing={3}>
-          {products.map((product: any) => (
+          {products?.map((product: any) => (
             <Grid item xs={12} sm={6} md={4} key={product.name}>
               <Card>
                 <NextLink href={`/product/${product.slug}`} passHref>

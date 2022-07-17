@@ -14,6 +14,7 @@ import CancelIcon from '@material-ui/icons/Cancel';
 import { Pagination } from '@material-ui/lab';
 import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import { useRouter } from 'next/router';
 import Layout from 'src/components/Layout';
@@ -51,13 +52,13 @@ interface ISearchProps {
   pages: any;
 }
 
-export default function Search({
+const Search: NextPage<ISearchProps> = ({
   products,
   countProducts,
   categories,
   brands,
   pages,
-}: ISearchProps) {
+}) => {
   const classes = useStyles();
   const router = useRouter();
   const {
@@ -244,7 +245,7 @@ export default function Search({
       </Grid>
     </Layout>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   await db.connect();
@@ -339,3 +340,5 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
     },
   };
 };
+
+export default Search;

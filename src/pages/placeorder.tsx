@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import type { NextPage } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -28,7 +29,7 @@ import { getError } from 'src/utils/error';
 import { Store } from 'src/utils/Store';
 import useStyles from 'src/utils/styles';
 
-function PlaceOrder() {
+const PlaceOrder: NextPage = () => {
   const classes = useStyles();
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
@@ -245,6 +246,6 @@ function PlaceOrder() {
       </Grid>
     </Layout>
   );
-}
+};
 
 export default dynamic(() => Promise.resolve(PlaceOrder), { ssr: false });
