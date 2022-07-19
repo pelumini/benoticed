@@ -10,6 +10,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
@@ -23,7 +24,7 @@ interface IHomeProps {
   products?: IProduct[];
 }
 
-export default function Home({ products }: IHomeProps) {
+const Home: NextPage<IHomeProps> = ({ products }) => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
 
@@ -46,7 +47,7 @@ export default function Home({ products }: IHomeProps) {
       <div>
         <h1>Products</h1>
         <Grid container spacing={3}>
-          {products?.map((product: any) => (
+          {products?.map((product: IProduct) => (
             <Grid item xs={12} sm={6} md={4} key={product.name}>
               <Card>
                 <NextLink href={`/product/${product.slug}`} passHref>
@@ -81,7 +82,7 @@ export default function Home({ products }: IHomeProps) {
       </div>
     </Layout>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async () => {
   await db.connect();
@@ -93,3 +94,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   };
 };
+
+export default Home;
