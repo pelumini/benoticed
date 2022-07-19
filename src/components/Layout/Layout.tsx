@@ -160,7 +160,7 @@ export const Layout: React.FC<ILayoutProps> = ({
               </IconButton>
               <NextLink href="/" passHref>
                 <Link>
-                  <Typography className={classes.brand}>benoticed</Typography>
+                  <Typography className={classes.brand}>benoticeds</Typography>
                 </Link>
               </NextLink>
             </Box>
