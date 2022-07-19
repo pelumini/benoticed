@@ -142,7 +142,7 @@ export const Layout: React.FC<ILayoutProps> = ({
   return (
     <div>
       <Head>
-        <title>{title ? `${title} - BeNoticed` : 'BeNoticed'}</title>
+        <title>{title ? `${title} - benoticed` : 'benoticed'}</title>
         {description && <meta name="description" content={description} />}
       </Head>
       <ThemeProvider theme={theme}>

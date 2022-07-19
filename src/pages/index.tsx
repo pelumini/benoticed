@@ -47,7 +47,7 @@ const Home: NextPage<IHomeProps> = ({ products }) => {
       <div>
         <h1>Products</h1>
         <Grid container spacing={3}>
-          {products?.map((product: any) => (
+          {products?.map((product: IProduct) => (
             <Grid item xs={12} sm={6} md={4} key={product.name}>
               <Card>
                 <NextLink href={`/product/${product.slug}`} passHref>

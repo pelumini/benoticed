@@ -63,6 +63,7 @@ module.exports = {
     ],
     'no-underscore-dangle': 'off',
     'no-shadow': 'off',
+    'no-alert': 'off',
     'no-unused-expressions': 'off',
     'no-restricted-exports': 'off',
     'no-nested-ternary': 'off',
