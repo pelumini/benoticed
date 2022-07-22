@@ -55,6 +55,7 @@ const PlaceOrder: NextPage = () => {
   }, []);
   const { closeSnackbar, enqueueSnackbar } = useSnackbar();
   const [loading, setLoading] = useState(false);
+
   const placeOrderHandler = async () => {
     closeSnackbar();
     try {

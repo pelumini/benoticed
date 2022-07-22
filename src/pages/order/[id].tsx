@@ -24,6 +24,7 @@ import Image from 'next/image';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import { useSnackbar } from 'notistack';
+import { StripeCheckoutForm } from 'src/components';
 import Layout from 'src/components/Layout';
 import { getError } from 'src/utils/error';
 import { Store } from 'src/utils/Store';
@@ -381,6 +382,7 @@ const Order: NextPage<IOrderProps> = ({ params }) => {
                           onApprove={onApprove}
                           onError={onError}
                         />
+                        {/* <StripeCheckoutForm /> */}
                       </div>
                     )}
                   </ListItem>
