@@ -17,7 +17,7 @@ type ACTIONTYPE =
   | { type: 'CART_ADD_ITEM'; payload?: any }
   | { type: 'CART_REMOVE_ITEM'; payload?: any }
   | { type: 'SAVE_SHIPPING_ADDRESS'; payload?: any }
-  | { type: 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION'; payload?: string }
+  | { type: 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION'; payload?: any }
   | { type: 'SAVE_PAYMENT_METHOD'; payload?: string }
   | { type: 'CART_CLEAR'; payload?: string }
   | { type: 'USER_LOGIN'; payload?: string }
