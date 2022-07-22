@@ -7,7 +7,11 @@ const handler = nc();
 handler.use(isAuth);
 
 handler.get(async (req: NextApiRequest, res: NextApiResponse) => {
-  res.send(process.env.PAYPAL_CLIENT_ID || 'sb');
+  if (req.method === 'GET') {
+    res.send(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
+  } else {
+    res.status(405).send('Method not allowed');
+  }
 });
 
 export default handler;

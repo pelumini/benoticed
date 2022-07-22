@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
@@ -134,23 +135,28 @@ const Order: NextPage<IOrderProps> = ({ params }) => {
         dispatch({ type: 'DELIVER_RESET' });
       }
     } else {
-      const loadPaypalScript = async () => {
-        const { data: clientId } = await axios.get('/api/keys/paypal', {
-          headers: { authorization: `Bearer ${userInfo.token}` },
-        });
-        paypalDispatch({
-          type: 'resetOptions',
-          value: {
-            'client-id': clientId,
-            currency: 'USD',
-          },
-        });
-        paypalDispatch({
-          type: 'setLoadingStatus',
-          value: SCRIPT_LOADING_STATE.PENDING,
-        });
-      };
-      loadPaypalScript();
+      const paymentMethod = Cookies.get('paymentMethod');
+      if (paymentMethod === 'PayPal') {
+        const loadPaypalScript = async () => {
+          const { data: clientId } = await axios.get('/api/keys/paypal', {
+            headers: { authorization: `Bearer ${userInfo.token}` },
+          });
+          paypalDispatch({
+            type: 'resetOptions',
+            value: {
+              'client-id': clientId,
+              currency: 'USD',
+            },
+          });
+          paypalDispatch({
+            type: 'setLoadingStatus',
+            value: SCRIPT_LOADING_STATE.PENDING,
+          });
+        };
+        loadPaypalScript();
+      } else if (paymentMethod === 'Stripe') {
+        return alert('Stripe payment method not implemented yet');
+      }
     }
   }, [order, successPay, successDeliver]);
   const { enqueueSnackbar } = useSnackbar();
