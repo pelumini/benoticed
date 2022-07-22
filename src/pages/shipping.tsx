@@ -96,7 +96,7 @@ const Shipping: NextPage = () => {
       <CheckoutWizard activeStep={1} />
       <form onSubmit={handleSubmit(submitHandler)} className={classes.form}>
         <Typography component="h1" variant="h1">
-          Shipping Addresses
+          Shipping Address
         </Typography>
         <List>
           <ListItem>
