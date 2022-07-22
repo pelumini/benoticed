@@ -27,6 +27,7 @@ const Payment: NextPage = () => {
   const {
     cart: { shippingAddress },
   } = state;
+
   useEffect(() => {
     if (!shippingAddress.address) {
       router.push('/shipping');
@@ -34,6 +35,7 @@ const Payment: NextPage = () => {
       setPaymentMethod(Cookies.get('paymentMethod') || '');
     }
   }, []);
+
   const submitHandler = (e: any) => {
     closeSnackbar();
     e.preventDefault();
@@ -45,6 +47,7 @@ const Payment: NextPage = () => {
       router.push('/placeorder');
     }
   };
+
   return (
     <Layout title="Payment Method">
       <CheckoutWizard activeStep={2} />

@@ -30,6 +30,7 @@ const Shipping: NextPage = () => {
     cart: { shippingAddress },
   } = state;
   const { location } = shippingAddress;
+
   useEffect(() => {
     if (!userInfo) {
       router.push('/login?redirect=/shipping');

@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
+import { IUser } from 'src/types';
 
-const signToken = (user: any) => {
+const signToken = (user: IUser) => {
   return jwt.sign(
     {
       _id: user._id,

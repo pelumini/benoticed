@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import Rating from '@material-ui/lab/Rating';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import Image from 'next/image';
 import NextLink from 'next/link';
@@ -29,7 +30,7 @@ interface IProductScreenProps {
   product: IProduct;
 }
 
-export default function ProductScreen({ product }: IProductScreenProps) {
+const ProductScreen: NextPage<IProductScreenProps> = ({ product }) => {
   const router = useRouter();
   const { state, dispatch } = useContext(Store);
   const { userInfo } = state;
@@ -248,7 +249,9 @@ export default function ProductScreen({ product }: IProductScreenProps) {
       </List>
     </Layout>
   );
-}
+};
+
+export default ProductScreen;
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const { params } = context;

@@ -1,26 +1,30 @@
-import React, { createContext, useReducer, ReactNode } from 'react';
+import React, { createContext, useReducer, ReactNode, Dispatch } from 'react';
 import Cookies from 'js-cookie';
 
 type StoreProviderProps = {
   children: ReactNode;
 };
 
+type InitialStateType = {
+  darkMode: boolean;
+  cart: any;
+  userInfo: any;
+};
+
 type ACTIONTYPE =
-  | { type: 'DARK_MODE_ON'; payload: string }
-  | { type: 'DARK_MODE_OFF'; payload: string }
-  | { type: 'CART_ADD_ITEM'; payload: any }
-  | { type: 'CART_REMOVE_ITEM'; payload: any }
-  | { type: 'SAVE_SHIPPING_ADDRESS'; payload: any }
-  | { type: 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION'; payload: string }
-  | { type: 'SAVE_PAYMENT_METHOD'; payload: string }
-  | { type: 'CART_CLEAR'; payload: string }
-  | { type: 'USER_LOGIN'; payload: string }
-  | { type: 'USER_LOGOUT'; payload: string }
-  | { type: 'DARK_MODE_OFF'; payload: string };
+  | { type: 'DARK_MODE_ON'; payload?: string }
+  | { type: 'DARK_MODE_OFF'; payload?: string }
+  | { type: 'CART_ADD_ITEM'; payload?: any }
+  | { type: 'CART_REMOVE_ITEM'; payload?: any }
+  | { type: 'SAVE_SHIPPING_ADDRESS'; payload?: any }
+  | { type: 'SAVE_SHIPPING_ADDRESS_MAP_LOCATION'; payload?: string }
+  | { type: 'SAVE_PAYMENT_METHOD'; payload?: string }
+  | { type: 'CART_CLEAR'; payload?: string }
+  | { type: 'USER_LOGIN'; payload?: string }
+  | { type: 'USER_LOGOUT'; payload?: string }
+  | { type: 'DARK_MODE_OFF'; payload?: string };
 
-export const Store = createContext<any>(undefined);
-
-const initialState = {
+const initialState: InitialStateType = {
   darkMode: Cookies.get('darkMode') === 'ON',
   cart: {
     cartItems: Cookies.get('cartItems')
@@ -38,7 +42,15 @@ const initialState = {
     : null,
 };
 
-function reducer(state: typeof initialState, action: ACTIONTYPE) {
+export const Store = createContext<{
+  state: InitialStateType;
+  dispatch: Dispatch<ACTIONTYPE>;
+}>({
+  state: initialState,
+  dispatch: () => null,
+});
+
+function reducer(state: InitialStateType, action: ACTIONTYPE) {
   switch (action.type) {
     case 'DARK_MODE_ON':
       return { ...state, darkMode: true };

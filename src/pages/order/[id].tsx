@@ -17,6 +17,7 @@ import {
 } from '@material-ui/core';
 import { PayPalButtons, usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import axios from 'axios';
+import type { NextPage } from 'next';
 import { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import Image from 'next/image';
@@ -69,7 +70,11 @@ function reducer(state: any, action: any) {
   }
 }
 
-function Order({ params }: any) {
+interface IOrderProps {
+  params: any;
+}
+
+const Order: NextPage<IOrderProps> = ({ params }) => {
   const orderId = params.id;
   const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
   const classes = useStyles();
@@ -400,7 +405,7 @@ function Order({ params }: any) {
       )}
     </Layout>
   );
-}
+};
 
 export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   return { props: { params } };

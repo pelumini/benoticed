@@ -8,6 +8,7 @@ import { onError } from 'src/utils/error';
 const handler = nc({
   onError,
 });
+
 handler.use(isAuth);
 
 handler.post(async (req: any, res: NextApiResponse) => {

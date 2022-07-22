@@ -120,6 +120,7 @@ export const Layout: React.FC<ILayoutProps> = ({
     const newDarkMode = !darkMode;
     Cookies.set('darkMode', newDarkMode ? 'ON' : 'OFF');
   };
+
   const [anchorEl, setAnchorEl] = useState(null);
   const loginClickHandler = (e: any) => {
     setAnchorEl(e.currentTarget);
