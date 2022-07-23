@@ -1,3 +1,5 @@
+import { IReview } from './review.type';
+
 export interface IProduct {
   _id: string;
   name: string;
@@ -12,4 +14,5 @@ export interface IProduct {
   numReviews: number;
   countInStock: number;
   description: string;
+  reviews: IReview[];
 }

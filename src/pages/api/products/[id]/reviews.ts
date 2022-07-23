@@ -40,11 +40,13 @@ handler.use(isAuth).post(async (req, res) => {
       );
 
       const updatedProduct = await Product.findById(req.query.id);
-      updatedProduct.numReviews = updatedProduct.reviews.length;
-      updatedProduct.rating =
-        updatedProduct.reviews.reduce((a: any, c: any) => c.rating + a, 0) /
-        updatedProduct.reviews.length;
-      await updatedProduct.save();
+      if (updatedProduct) {
+        updatedProduct.numReviews = updatedProduct?.reviews.length;
+        updatedProduct.rating =
+          updatedProduct.reviews.reduce((a: any, c: any) => c.rating + a, 0) /
+          updatedProduct.reviews.length;
+        await updatedProduct.save();
+      }
 
       await db.disconnect();
       return res.send({ message: 'Review updated' });

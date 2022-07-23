@@ -258,7 +258,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
   const sort = query.sort || '';
   const searchQuery = query.query || '';
 
-  const queryFilter =
+  const queryFilter: any =
     searchQuery && searchQuery !== 'all'
       ? {
           name: {
@@ -267,9 +267,10 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
           },
         }
       : {};
-  const categoryFilter = category && category !== 'all' ? { category } : {};
-  const brandFilter = brand && brand !== 'all' ? { brand } : {};
-  const ratingFilter =
+  const categoryFilter: any =
+    category && category !== 'all' ? { category } : {};
+  const brandFilter: any = brand && brand !== 'all' ? { brand } : {};
+  const ratingFilter: any =
     rating && rating !== 'all'
       ? {
           rating: {
@@ -278,7 +279,7 @@ export const getServerSideProps: GetServerSideProps = async ({ query }) => {
         }
       : {};
   // 10-50
-  const priceFilter =
+  const priceFilter: any =
     price && price !== 'all'
       ? {
           price: {
