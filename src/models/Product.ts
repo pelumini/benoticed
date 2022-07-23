@@ -1,6 +1,10 @@
-import mongoose from 'mongoose';
+import mongoose, { Document } from 'mongoose';
+import { IProduct, IReview } from 'src/types';
 
-const reviewSchema = new mongoose.Schema(
+type ProductDocument = IProduct & Document;
+type ReviewDocument = IReview & Document;
+
+const reviewSchema = new mongoose.Schema<ReviewDocument>(
   {
     user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     name: { type: String, required: true },
@@ -12,7 +16,7 @@ const reviewSchema = new mongoose.Schema(
   }
 );
 
-const productSchema = new mongoose.Schema(
+const productSchema = new mongoose.Schema<ProductDocument>(
   {
     name: { type: String, required: true },
     slug: { type: String, required: true, unique: true },
@@ -33,6 +37,5 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-const Product =
-  mongoose.models.Product || mongoose.model('Product', productSchema);
-export default Product;
+export default (mongoose.models.Product as mongoose.Model<ProductDocument>) ||
+  mongoose.model<ProductDocument>('Product', productSchema);
